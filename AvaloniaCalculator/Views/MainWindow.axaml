@@ -3,6 +3,7 @@
         xmlns:vm="using:AvaloniaCalculator.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:iconPacks="https://github.com/MahApps/IconPacks.Avalonia"
         mc:Ignorable="d" d:DesignWidth="450" d:DesignHeight="600"
         x:Class="AvaloniaCalculator.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
@@ -25,20 +26,20 @@
 				<Setter Property="FontWeight" Value="Regular"/>
 				<Setter Property="FontSize" Value="32"/>
 				<Setter Property="Background" Value="#dfe6e9"/>
-				<Setter Property="Foreground" Value="#2d3436"/>
+				<Setter Property="Foreground" Value="#636e72"/>
 				<Setter Property="Margin" Value="6"/>
 				<Setter Property="Padding" Value="3"/>
 				<Setter Property="HorizontalAlignment" Value="Stretch"/>
 				<Setter Property="VerticalAlignment" Value="Stretch"/>
 				<Setter Property="HorizontalContentAlignment" Value="Center"/>
 				<Setter Property="VerticalContentAlignment" Value="Center"/>
-			</Style>
-			<Style Selector="Button.operator">
-				<Setter Property="Foreground" Value="#6c5ce7"/>
 				<Style Selector="^:pointerover">
 					<Setter Property="Background" Value="#6c5ce7"/>
 					<Setter Property="Foreground" Value="#2d3436"/>
 				</Style>
+			</Style>
+			<Style Selector="Button.operator">
+				<Setter Property="Foreground" Value="#6c5ce7"/>
 			</Style>
 			<Style Selector="TextBlock.expression">
 				<Setter Property="FontSize" Value="20"/>
@@ -76,36 +77,107 @@
 		</Border>
 
 		<!-- Math Operators, for math stuff -->
-		<Button Classes="operator" Grid.Row="2" Grid.Column="0" Content="+" Command="{Binding DoMath}" CommandParameter="+"/>
-		<Button Classes="operator" Grid.Row="2" Grid.Column="1" Content="-" Command="{Binding DoMath}" CommandParameter="-"/>
-		<Button Classes="operator" Grid.Row="2" Grid.Column="2" Content="x" Command="{Binding DoMath}" CommandParameter="*"/>
-		<Button Classes="operator" Grid.Row="2" Grid.Column="3" Content="/" Command="{Binding DoMath}" CommandParameter="/"/>
+		<Button Classes="operator" Grid.Row="2" Grid.Column="0" Command="{Binding DoMath}" CommandParameter="+">
+			<Button.Content>
+				<iconPacks:PackIconPhosphorIcons Kind="PlusBold"/>
+			</Button.Content>
+		</Button>
+		<Button Classes="operator" Grid.Row="2" Grid.Column="1" Content="-" Command="{Binding DoMath}" CommandParameter="-">
+			<Button.Content>
+				<iconPacks:PackIconPhosphorIcons Kind="MinusBold"/>
+			</Button.Content>
+		</Button>
+		<Button Classes="operator" Grid.Row="2" Grid.Column="2" Content="x" Command="{Binding DoMath}" CommandParameter="*">
+			<Button.Content>
+				<iconPacks:PackIconPhosphorIcons Kind="XBold"/>
+			</Button.Content>
+		</Button>
+		<Button Classes="operator" Grid.Row="2" Grid.Column="3" Content="/" Command="{Binding DoMath}" CommandParameter="/">
+			<Button.Content>
+				<iconPacks:PackIconPhosphorIcons Kind="DivideBold"/>
+			</Button.Content>
+		</Button>
 		
 		<!-- First Row-->
-		<Button Classes="operator" Grid.Row="3" Grid.Column="0" Content="%" Command="{Binding DoMath}" CommandParameter=""/>
-		<Button Grid.Row="3" Grid.Column="1" Content="CE" Command="{Binding ClearEverythingCommand}"/>
-		<Button Grid.Row="3" Grid.Column="2" Content="C" Command="{Binding ClearDisplayCommand}"/>
-		<Button Classes="operator" Grid.Row="3" Grid.Column="3" Grid.RowSpan="5" Content="PUSH" Command="{Binding StackPush}" CommandParameter="/"/>
+		<Button Classes="operator" Grid.Row="3" Grid.Column="0"  Command="{Binding DoMath}" CommandParameter="">
+			<Button.Content>
+				<iconPacks:PackIconPhosphorIcons Kind="PercentBold"/>	
+			</Button.Content>
+		</Button>
+		<Button Grid.Row="3" Grid.Column="1" Content="CE" Command="{Binding ClearEverythingCommand}" Foreground="#d63031" FontWeight="Bold">
+		</Button>
+		<Button Grid.Row="3" Grid.Column="2" Content="C" Command="{Binding ClearDisplayCommand}" Foreground="#d63031" FontWeight="Bold"/>
+		<Button Classes="operator" Grid.Row="3" Grid.Column="3" Grid.RowSpan="5" Command="{Binding StackPush}" CommandParameter="/">
+			<Button.Content>
+				<iconPacks:PackIconPhosphorIcons Kind="StackPlus" Width="48" Height="48"/>
+			</Button.Content>	
+		</Button>
 		
 		<!-- Second Row-->
-		<Button Grid.Row="4" Grid.Column="0" Content="7" Command="{Binding ChangeNumber}" CommandParameter="7"/>
-		<Button Grid.Row="4" Grid.Column="1" Content="8" Command="{Binding ChangeNumber}" CommandParameter="8"/>
-		<Button Grid.Row="4" Grid.Column="2" Content="9" Command="{Binding ChangeNumber}" CommandParameter="9"/>
+		<Button Grid.Row="4" Grid.Column="0" Content="7" Command="{Binding ChangeNumber}" CommandParameter="7">
+			<Button.Content>
+				<iconPacks:PhosphorIcons Kind="NumberNineBold"/>
+			</Button.Content>	
+		</Button>
+		<Button Grid.Row="4" Grid.Column="1" Content="8" Command="{Binding ChangeNumber}" CommandParameter="8">
+			<Button.Content>
+				<iconPacks:PhosphorIcons Kind="NumberEightBold"/>
+			</Button.Content>	
+		</Button>
+		<Button Grid.Row="4" Grid.Column="2" Content="9" Command="{Binding ChangeNumber}" CommandParameter="9">
+			<Button.Content>
+				<iconPacks:PhosphorIcons Kind="NumberNineBold"/>
+			</Button.Content>
+		</Button>
 		
 		<!-- Third Row-->
-		<Button Grid.Row="5" Grid.Column="0" Content="4" Command="{Binding ChangeNumber}" CommandParameter="4"/>
-		<Button Grid.Row="5" Grid.Column="1" Content="5" Command="{Binding ChangeNumber}" CommandParameter="5"/>
-		<Button Grid.Row="5" Grid.Column="2" Content="6" Command="{Binding ChangeNumber}" CommandParameter="6"/>
+		<Button Grid.Row="5" Grid.Column="0" Content="4" Command="{Binding ChangeNumber}" CommandParameter="4">
+			<Button.Content>
+				<iconPacks:PhosphorIcons Kind="NumberFourBold"/>
+			</Button.Content>
+		</Button>
+		
+		<Button Grid.Row="5" Grid.Column="1" Content="5" Command="{Binding ChangeNumber}" CommandParameter="5">
+			<Button.Content>
+				<iconPacks:PhosphorIcons Kind="NumberFiveBold"/>
+			</Button.Content>
+		</Button>
+		<Button Grid.Row="5" Grid.Column="2" Content="6" Command="{Binding ChangeNumber}" CommandParameter="6">
+			<Button.Content>
+				<iconPacks:PhosphorIcons Kind="NumberSixBold"/>
+			</Button.Content>
+		</Button>
+				
 		
 		<!-- Fourth Row-->
-		<Button Grid.Row="6" Grid.Column="0" Content="1" Command="{Binding ChangeNumber}" CommandParameter="1"/>
-		<Button Grid.Row="6" Grid.Column="1" Content="2" Command="{Binding ChangeNumber}" CommandParameter="2"/>
-		<Button Grid.Row="6" Grid.Column="2" Content="3" Command="{Binding ChangeNumber}" CommandParameter="3"/>
+		<Button Grid.Row="6" Grid.Column="0" Content="1" Command="{Binding ChangeNumber}" CommandParameter="1">
+			<Button.Content>
+				<iconPacks:PhosphorIcons Kind="NumberOneBold"/>
+			</Button.Content>
+		</Button>
+		<Button Grid.Row="6" Grid.Column="1" Command="{Binding ChangeNumber}" CommandParameter="2">
+			<Button.Content>
+				<iconPacks:PhosphorIcons Kind="NumberTwoBold"/>
+			</Button.Content>
+		</Button>
+		<Button Grid.Row="6" Grid.Column="2" Command="{Binding ChangeNumber}" CommandParameter="3">
+			<Button.Content>
+				<iconPacks:PhosphorIcons Kind="NumberThreeBold"	/>
+			</Button.Content>
+		</Button>
 		
 		<!-- Final row of Buttons -->
-		<Button Grid.Row="7" Grid.Column="0" Content="+/-" Command="{Binding NegateNumberCommand}"/>
-		<Button Grid.Row="7" Grid.Column="1" Content="0" Command="{Binding ChangeNumber}" CommandParameter="0"/>
-		<Button Grid.Row="7" Grid.Column="2" Content="." Command="{Binding ChangeNumber}" CommandParameter="0"/>
+		<Button Classes="operator" Grid.Row="7" Grid.Column="0" Command="{Binding NegateNumberCommand}">
+			<Button.Content>
+				<iconPacks:PhosphorIcons Kind="PlusMinusBold"/>
+			</Button.Content>
+		</Button>
+		<Button Grid.Row="7" Grid.Column="1" Command="{Binding ChangeNumber}" CommandParameter="0">
+			<Button.Content>
+				<iconPacks:PhosphorIcons Kind="NumberZeroBold"/>
+			</Button.Content>
+		</Button>
+		<Button Classes="operator" Grid.Row="7" Grid.Column="2" Content="." Command="{Binding ChangeNumber}" CommandParameter="0"/>
 	</Grid>
 
 </Window>

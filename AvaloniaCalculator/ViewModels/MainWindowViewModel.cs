@@ -71,7 +71,15 @@ namespace AvaloniaCalculator.ViewModels
 
         public void StackPush()
         {
-            double val = Convert.ToDouble(_currentNumber);
+            double val;
+            try
+            {
+                val = Convert.ToDouble(_currentNumber);
+            }
+            catch (FormatException)
+            {
+                return;
+            }
             _stackModel.Push(val);
             this.RaisePropertyChanged(nameof(Stack));
             ClearDisplay();
