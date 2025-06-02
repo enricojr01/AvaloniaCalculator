@@ -116,7 +116,7 @@
 		<!-- Second Row-->
 		<Button Grid.Row="4" Grid.Column="0" Content="7" Command="{Binding ChangeNumber}" CommandParameter="7">
 			<Button.Content>
-				<iconPacks:PhosphorIcons Kind="NumberNineBold"/>
+				<iconPacks:PhosphorIcons Kind="NumberSevenBold"/>
 			</Button.Content>	
 		</Button>
 		<Button Grid.Row="4" Grid.Column="1" Content="8" Command="{Binding ChangeNumber}" CommandParameter="8">
